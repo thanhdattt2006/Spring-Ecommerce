@@ -1,10 +1,7 @@
 package com.dave.backend.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -37,5 +34,13 @@ public class Product {
     private boolean productAvailable;
     private int stockQuantity; // Số lượng tồn kho
 
-    // Sau này sẽ thêm trường ảnh (image) ở đây
+    // Tên file ảnh (ví dụ: iphone15.jpg)
+    private String imageName;
+
+    // Loại file (ví dụ: image/jpeg, image/png)
+    private String imageType;
+
+    // Dữ liệu ảnh thực sự (dạng mảng byte). Cần annotation @Lob để báo DB đây là cục dữ liệu to.
+    @Lob
+    private byte[] imageData;
 }
