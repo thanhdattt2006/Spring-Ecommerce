@@ -16,7 +16,7 @@ import java.util.Date;
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     private String name;
     private String description;
@@ -28,11 +28,11 @@ public class Product {
     private String category;
 
     // Ngày tháng dùng java.util.Date
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
+//    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
     private Date releaseDate;
 
     private boolean productAvailable;
-    private int stockQuantity; // Số lượng tồn kho
+    private Integer stockQuantity; // Số lượng tồn kho
 
     // Tên file ảnh (ví dụ: iphone15.jpg)
     private String imageName;

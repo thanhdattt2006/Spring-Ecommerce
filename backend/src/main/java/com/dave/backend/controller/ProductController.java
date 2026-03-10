@@ -4,6 +4,7 @@ import com.dave.backend.model.Product;
 import com.dave.backend.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -48,5 +49,17 @@ public class ProductController {
         }
     }
 
+    @GetMapping("/product/{id}/image")
+    public ResponseEntity<byte[]> getImageProductById(@PathVariable int id) {
+        // 1. Nhờ Service móc thằng Product ra từ DB
+        Product product = service.getProductById(id);
 
+        // 2. Chộp lấy cục mảng byte (imageData)
+        byte[] imageFile = product.getImageData();
+
+        // 3. Trả về cho Frontend, NHƯNG phải báo cho nó biết đây là ảnh loại gì (png, jpeg...)
+        return ResponseEntity.ok()
+                .contentType(MediaType.valueOf(product.getImageType())) // Bùa chú định dạng ảnh
+                .body(imageFile); // Quăng cục byte[] vào Body
+    }
 }
