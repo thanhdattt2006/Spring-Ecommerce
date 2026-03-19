@@ -37,4 +37,15 @@ public class ProductService {
         // 4. Lưu xuống Database
         return repo.save(product);
     }
+
+    public Product updateProduct (int id, Product product, MultipartFile imageFile) throws IOException {
+        product.setImageData(imageFile.getBytes());
+        product.setImageName(imageFile.getOriginalFilename());
+        product.setImageType(imageFile.getContentType());
+        return repo.save(product); // Hàm save của JPA vừa dùng để Thêm, vừa dùng để Sửa luôn
+    }
+
+    public void deleteProduct (int id) {
+        repo.deleteById(id);
+    }
 }
