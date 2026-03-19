@@ -2,7 +2,7 @@ Spring Commerce - Fullstack E-commerce Application
 📌 Project Overview
 This is a fullstack E-commerce application built as a deep-dive into the Spring Boot ecosystem, inspired by the comprehensive curriculum from Telusko. The project demonstrates the separation of concerns by utilizing a decoupled architecture: a robust Spring Boot REST API for the backend logic and a modern React.js frontend.
 
-The backend is custom-built to handle business logic, database persistence, and file management, while the frontend is integrated from the ecom-frontend-1 repository.
+The backend is custom-built to handle business logic, database persistence, and file management, while the frontend is integrated from the ecom-frontend-5 repository.
 
 🚀 Tech Stack
 Backend
@@ -73,12 +73,12 @@ Run the application:
 Bash
 mvn spring-boot:run
 2. Frontend Setup
-Clone the frontend: git clone https://github.com/navinreddy20/ecom-frontend-1
+Clone the frontend: git clone https://github.com/navinreddy20/ecom-frontend-5
 
 Install dependencies:
 
 Bash
-cd ecom-frontend-1
+cd ecom-frontend-5
 npm install
 Update the API base URL in the frontend code (usually in a conf.js or service file) to point to http://localhost:8080/api.
 
